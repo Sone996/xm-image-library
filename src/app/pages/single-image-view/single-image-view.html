@@ -1,0 +1,30 @@
+<div class="single-image">
+  @if (image()) {
+  <div class="single-image__content">
+    <div class="single-image__header">
+      <button mat-icon-button class="single-image__icon-btn" type="button" (click)="goBack()" aria-label="Go back">
+        <mat-icon aria-hidden="true">arrow_back_ios_new</mat-icon>
+      </button>
+      <h2 class="single-image__title">{{ image().author }}</h2>
+      <div class="single-image__actions">
+        <button
+          mat-flat-button
+          class="single-image__action-btn"
+          [class.single-image__action-btn--remove]="isFavorite()"
+          [class.single-image__action-btn--add]="!isFavorite()"
+          (click)="toggleFav()"
+        >
+          {{ favLabel() }}
+        </button>
+      </div>
+    </div>
+    <div class="single-image__media">
+      <img class="single-image__full" [src]="image().fullUrl" />
+    </div>
+  </div>
+  } @else if (imageLoading()) {
+  <app-spinner />
+  } @else {
+  <div class="single-image__empty">Image not found in favorites. It may still be available via list.</div>
+  }
+</div>

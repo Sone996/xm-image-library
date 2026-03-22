@@ -1,0 +1,20 @@
+<div class="app-header">
+  <a class="app-header__logo-link" routerLink="/" aria-label="Image Viewer home">
+    <span class="app-header__logo" aria-hidden="true"></span>
+  </a>
+
+  <nav class="app-header__nav" aria-label="Primary navigation">
+    <button mat-button class="app-header__nav-btn" routerLink="/" appActiveRoutes [activeRoutes]="['/', '/detail']">
+      All Pictures
+    </button>
+    <button
+      mat-button
+      class="app-header__nav-btn"
+      routerLink="/favorites"
+      appActiveRoutes
+      [activeRoutes]="['/favorites']"
+    >
+      Favorites
+    </button>
+  </nav>
+</div>

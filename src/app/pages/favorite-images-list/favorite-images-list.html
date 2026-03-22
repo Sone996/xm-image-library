@@ -1,0 +1,11 @@
+<div class="favorite-images-list">
+  @if (favorites().length === 0) {
+  <div class="favorite-images-list__empty">No favorites yet.</div>
+  }
+
+  <app-grid-wrapper>
+    @for(img of favorites(); track img) {
+    <app-image-item [image]="img" />
+    }
+  </app-grid-wrapper>
+</div>

@@ -1,59 +1,64 @@
-# XmImageLibrary
+# XM Image Library
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.21.
+Small Angular application for browsing images, opening image details, and managing favorites.
 
-## Development server
+## Requirements
 
-To start a local development server, run:
+- Node.js 20 or newer (recommended 22)
+- npm 10 or newer
 
-```bash
-ng serve
-```
+## Setup
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Install project dependencies:
 
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Start the Project
+
+Run the development server:
 
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+The app will be available at:
 
-To build the project run:
+```text
+http://localhost:4200
+```
+
+## Run Tests
+
+Run the full Jest test suite once:
 
 ```bash
-ng build
+npm test
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Run tests in watch mode:
 
 ```bash
-ng test
+npm run test:watch
 ```
 
-## Running end-to-end tests
+## Other Useful Commands
 
-For end-to-end (e2e) testing, run:
+Build the project:
 
 ```bash
-ng e2e
+npm run build
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Run linting:
 
-## Additional Resources
+```bash
+npm run lint
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Format the codebase:
+
+```bash
+npm run format
+```

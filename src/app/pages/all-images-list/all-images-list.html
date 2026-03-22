@@ -1,0 +1,16 @@
+<div
+  class="all-images-list"
+  appInfiniteScroll
+  [infiniteScrollDisabled]="loading()"
+  (infiniteScrollReached)="loadMore()"
+>
+  <app-grid-wrapper>
+    @for(img of images(); track img) {
+    <app-image-item [image]="img" />
+    }
+  </app-grid-wrapper>
+
+  @if (loading()) {
+  <app-spinner />
+  }
+</div>

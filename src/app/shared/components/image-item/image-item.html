@@ -1,0 +1,31 @@
+<div class="image-item" (click)="addToFavorites()">
+  <img
+    class="image-item__image"
+    [ngSrc]="image().listUrl"
+    [alt]="'Photo by ' + image().author"
+    [priority]="image().id"
+    width="600"
+    height="400"
+  />
+
+  @if (showLikeAnimation()) {
+  <div class="image-item__like-burst" (animationend)="onLikeAnimationEnd()">
+    <mat-icon class="image-item__like-icon" aria-hidden="true">favorite</mat-icon>
+  </div>
+  }
+
+  <div class="image-item__overlay">
+    <button mat-flat-button type="button" class="image-item__open-btn" (click)="openDetail($event)">
+      <mat-icon aria-hidden="true">open_in_new</mat-icon>
+      <span>Open</span>
+    </button>
+  </div>
+
+  <button mat-icon-button type="button" class="image-item__fav-btn" (click)="toggleFav($event)">
+    @if(imageService.isFav(image().id)) {
+    <mat-icon aria-hidden="true">favorite</mat-icon>
+    } @else {
+    <mat-icon aria-hidden="true">favorite_border</mat-icon>
+    }
+  </button>
+</div>

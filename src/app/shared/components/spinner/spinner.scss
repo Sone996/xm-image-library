@@ -1,0 +1,22 @@
+:host {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 12px 0;
+}
+
+.spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+
+  &__indicator {
+    --mdc-circular-progress-active-indicator-color: var(--color-primary);
+  }
+}

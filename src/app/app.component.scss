@@ -1,0 +1,29 @@
+.app-shell {
+  min-height: 100dvh;
+
+  &__header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    transform: translateY(0);
+    transition: transform 180ms ease;
+
+    &--hidden {
+      transform: translateY(calc(-1 * var(--app-header-height)));
+    }
+  }
+
+  &__content {
+    position: relative;
+    padding-top: var(--app-header-height);
+    overflow-x: hidden;
+    min-height: 100dvh;
+  }
+
+  &__route-frame {
+    position: relative;
+    min-height: calc(100dvh - var(--app-header-height));
+  }
+}

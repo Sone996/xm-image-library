@@ -1,12 +1,14 @@
-import { provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
+import { provideRouter } from '@angular/router';
+
 import { AppComponent } from './app.component';
 
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
-      providers: [provideZonelessChangeDetection()]
+      providers: [provideRouter([]), provideNoopAnimations()]
     }).compileComponents();
   });
 
@@ -16,10 +18,29 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', () => {
+  it('should render the header shell', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, xm-image-library');
+    expect(compiled.querySelector('app-header')).not.toBeNull();
+  });
+
+  it('should toggle header visibility based on scroll direction', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+
+    Object.defineProperty(window, 'scrollY', {
+      configurable: true,
+      value: 120
+    });
+    app.onWindowScroll();
+    expect(app.headerVisible()).toBe(false);
+
+    Object.defineProperty(window, 'scrollY', {
+      configurable: true,
+      value: 48
+    });
+    app.onWindowScroll();
+    expect(app.headerVisible()).toBe(true);
   });
 });
